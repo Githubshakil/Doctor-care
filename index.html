@@ -19,14 +19,43 @@
       
    
 </head>
-<body class="bg-[#F7F9F9] overflow-x-hidden">
+<body class="bg-[#F7F9F9] overflow-x-hidden font-['DM+Sans']">
     <!-- header section -->
-     <header>
-        <nav>
+     <header id="header" class="bg-[#DCE9E2]">
+        <nav class="containe max-w-screen-xl mx-auto flex justify-between items-center p-4">
             <!-- logo -->
-             <div>
-                <a href="/">Doctor<span class="text-[#00856F]">Care</span></a>
+             <div class="text-xl font-bold">
+                <a href="/" class="text-black">Doctor<span class="text-[#00856F]">Care</span></a>
              </div>
+             <!-- manu items -->
+             <ul class="hidden md:flex space-x-8 l">
+                <li class="text-[#00856F] font-norma">
+                    <a href="#home" class="">Início</a>
+                </li>
+                <li>
+                    <a href="#services" class="hover:text-[#00856F]">Serviços</a>
+                </li>
+                <li>
+                    <a href="#about" class="hover:text-[#00856F]">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contact" class="hover:text-[#00856F]">Depoimentos</a>
+                </li>
+             </ul> 
+             <!-- call to action -->
+              <div class="hidden md:block">
+                <a 
+                id="contact-button"
+                href="#contact" class="md:w-56 text-[#00856F] hover:text-white border border-[#00856F] px-6 py-2.5 rounded-full hover:bg-[#00856F] transition-all duration-300 md:flex items-center justify-center">Agendar consulta</a>
+            </div>
+                <!-- mobile nav bar -->
+                 <div>
+                    <button
+                    id="mobile-menu-button"
+                    class="navbar-burger flex items-center p-3">
+                        <img src="./images/menu-icon.svg" alt="manu icon" class="block h-4 w-4 fill-current">
+                    </button>
+                 </div>
         </nav>
      </header>
     
