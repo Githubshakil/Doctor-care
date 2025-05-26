@@ -20,6 +20,9 @@
     html {
         scroll-behavior: smooth;
     }
+    .active{
+        font-weight: 700;
+    }
 </style>
       
    
@@ -64,6 +67,41 @@
         </nav>
 
         <!-- TODO Mobile Menu -->
+         <div id="mobile-menu" class="navbar-menu relative z-50 hidden">
+            <div class="navbar-backdrop fixed inset-0 bg-[#00856f] opacity-25">
+                <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-sm py-6 px-6 text-white border-r overflow-y-hidden">
+                    <div class="flex items-center mb-8">
+                        <a href="/" class="text-white mr-auto text-2xl  leading-none ">Doctor<span class="text-white">Care</span></a>
+                        <button id="mobile-menu-close" class="navbar-close p-1 rounded-full  bg-white">
+                            <img src="./images/close-menu-icon.svg" alt="" class="h-6 w-6 text-white cursor-pointer hover:text-gray-500">
+                        </button>       
+                    </div>
+                    <div>
+                        <ul class="space-y-5">
+                            <li class="mb-1" >
+                                <a href="#home" class="hover:text-[#00856F]">Início</a>
+                            </li>
+                            <li class="mb-1">
+                                <a href="#services" class="hover:text-[#00856F]">Serviços</a>
+                            </li>
+                            <li class="mb-1">
+                                <a href="#about"class="hover:text-[#00856F]">Sobre</a>
+                            </li>
+                            <li class="mb-1">
+                                <a href="#contact" class="hover:text-[#00856F]">Depoimentos</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block md:hidden mt-12">
+                        <a 
+                        id="contact-btn"
+                        href="#contact" class="bg-white text-[#00856F] hover:text-white border border-[#00856F] px-6 py-2.5 rounded-full hover:bg-[#00856F] transition-all duration-300 md:flex items-center justify-center">Agendar consulta</a>
+                    </div>
+                </nav>
+            </div>
+
+            </div>
+         </div>
      </header>
 
      <!-- Hero/Banner Section -->
@@ -187,6 +225,7 @@
 
 
     <!-- js script -->
+     <script src="./js/app.js"></script>
      <script src="./js/services.js"></script>
 </body>
 </html>

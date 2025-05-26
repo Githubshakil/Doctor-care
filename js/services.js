@@ -48,4 +48,4 @@ function generateServiceHTML(service){
 const serviceContainer = document.getElementById("service-container");
 
 serviceContainer.innerHTML = services.map((service)=>generateServiceHTML(service)).join('');
-console.log(serviceContainer.innerHTML);
+// console.log(serviceContainer.innerHTML);
