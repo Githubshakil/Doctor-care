@@ -2,23 +2,23 @@
 
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav a[href^="#"]');
-const menu = document.querySelectorAll('.navbar-menu');
-const burger = document.querySelectorAll('.navbar-burger');
-const close = document.querySelectorAll('.navbar-close');
-const backdrop = document.querySelectorAll('.navbar-backdrop');
+const menu = document.querySelector('.navbar-menu');
+const burger = document.querySelector('.navbar-burger');
+const close = document.querySelector('.navbar-close');
+const backdrop = document.querySelector('.navbar-backdrop');
 const mobileMenuLink = document.querySelectorAll('#mobile-menu a[href^="#"]');
 
 document.addEventListener('DOMContentLoaded', () => {
     handleScroll();
     window.addEventListener('scroll', handleScroll);
 
-    if(burger.length && menu.length){
+    if(burger && menu){
         handleMobileMenuToggle(burger, menu)
     }
-    if(close.length && backdrop.length && menu.length){
+    if(close && backdrop && menu){
         handleMobileMenuClose(close, backdrop, menu);
     } 
-    if(mobileMenuLink.length && menu.length && menu.length){
+    if(mobileMenuLink.length && menu){
         handleMobileMenuLinkClick(mobileMenuLink, navLinks, menu);
     }
 });
@@ -43,46 +43,32 @@ function handleScroll() {
 }
 
 function handleMobileMenuToggle(burger, menu) {
-    burger.forEach((burger => {
-        burger.addEventListener('click', ()=>{
-            menu.forEach((menu)=>{
-                menu.classList.toggle('hidden');
-            })
-        })
-    }))
+    burger.addEventListener('click', ()=>{
+        menu.classList.toggle('hidden');
+    });
 }
 
 
 function handleMobileMenuClose(close, backdrop, menu) {
-    close.forEach((close)=>{
-        close.addEventListener('click', ()=>{
-            menu.forEach((menu)=>{
-                menu.classList.add('hidden');
-            })
-        })
-    })
-    backdrop.forEach((backdrop)=>{
-        backdrop.addEventListener('click', ()=>{
-            menu.forEach((menu)=>{
-                menu.classList.add('hidden');
-            })
-        })
-    })
+    close.addEventListener('click', () => {
+        menu.classList.add('hidden');
+    });
+    backdrop.addEventListener('click', () => {
+        menu.classList.add('hidden');
+    });
 }
 
 function handleMobileMenuLinkClick(mobileMenuLink, navLinks, menu) {
-    mobileMenuLink.forEach(anchor =>{
-        anchor.addEventListener('click', ()=>{
+    mobileMenuLink.forEach(anchor => {
+        anchor.addEventListener('click', function() {
             navLinks.forEach((link) => {
                 link.classList.remove('active');
-                const targetLink = document.querySelectorAll(`nav a[href="${this.getAttribute('href')}"]`)
-                if(targetLink){
-                    targetLink.classList.add('active');
-                };
-                menu.forEach((menu)=>{
-                    menu.classList.add('hidden');
-                })
             });
-        })
-    })
+            const targetLinks = document.querySelectorAll(`nav a[href="${this.getAttribute('href')}"]`);
+            targetLinks.forEach((targetLink) => {
+                targetLink.classList.add('active');
+            });
+            menu.classList.add('hidden');
+        });
+    });
 }
